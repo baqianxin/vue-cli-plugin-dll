@@ -1,10 +1,10 @@
 {
-    "name": "vue-cli-plugin-dll",
-    "version": "1.1.12",
+    "name": "vue-cli-plugin-dll-webpack5",
+    "version": "1.2.0",
     "description": "vue-cli 3 plugin for Dll and DllReference",
     "main": "service.js",
-    "repository": "git+https://github.com/fingerpan/vue-cli-plugin-dll.git",
-    "homepage": "https://github.com/fingerpan/vue-cli-plugin-dll",
+    "repository": "git+https://github.com/baqianxin/vue-cli-plugin-dll.git",
+    "homepage": "https://github.com/baqianxin/vue-cli-plugin-dll",
     "keywords": [
         "vue",
         "vue-cli",
@@ -18,11 +18,12 @@
         "node": ">=8.0"
     },
     "dependencies": {
+        "@intervolga/optimize-cssnano-plugin": "^1.0.6",
         "add-asset-html-webpack-plugin": "^3.1.2",
         "friendly-errors-webpack-plugin": "^1.7.0",
         "mini-css-extract-plugin": "^0.5.0",
         "vue-loader": "^15.7.0",
-        "@intervolga/optimize-cssnano-plugin": "^1.0.6"
+        "webpack": "^4.46.0"
     },
     "peerDependencies": {
         "@vue/cli-service": "^3.3.0"
