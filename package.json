@@ -1,6 +1,6 @@
 {
     "name": "vue-cli-plugin-dll-webpack5",
-    "version": "1.2.0",
+    "version": "1.2.5",
     "description": "vue-cli 3 plugin for Dll and DllReference",
     "main": "service.js",
     "repository": "git+https://github.com/baqianxin/vue-cli-plugin-dll.git",
