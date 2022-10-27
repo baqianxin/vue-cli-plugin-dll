@@ -12,6 +12,16 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+        with:
+          node-version: 16
+      - run: npm install --legacy-peer-deps
+
+  publish-npm:
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
       - name: Get version
         id: get_version
         run: echo ::set-output name=VERSION::${GITHUB_REF/refs\/tags\//}
@@ -19,20 +29,10 @@ jobs:
       - uses: actions/setup-node@v3
         with:
           node-version: 16
-      - run: npm install --legacy-peer-deps
+          registry-url: https://registry.npmjs.org/
       - run: git config --global user.email "baqianxin@gmail.com@"
       - run: git config --global user.name "baqianxin"
       - run: npm version patch -m ${{ steps.get_version.outputs.VERSION }}
-
-  publish-npm:
-    needs: build
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v3
-      - uses: actions/setup-node@v3
-        with:
-          node-version: 16
-          registry-url: https://registry.npmjs.org/
       - run: npm publish
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
