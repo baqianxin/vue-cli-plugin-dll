@@ -20,6 +20,8 @@ jobs:
         with:
           node-version: 16
       - run: npm install --legacy-peer-deps
+      - run: git config --global user.email "baqianxin@gmail.com@"
+      - run: git config --global user.name "baqianxin"
       - run: npm version patch -m ${{ steps.get_version.outputs.VERSION }}
 
   publish-npm:
