@@ -4,18 +4,23 @@
 name: publish npm package
 
 on:
-  release:
-    types: [created]
+  push:
+    tags:
+      - 'v*'
 
 jobs:
   build:
     runs-on: ubuntu-latest
     steps:
+      - name: Get version
+        id: get_version
+        run: echo ::set-output name=VERSION::${GITHUB_REF/refs\/tags\//}
       - uses: actions/checkout@v3
       - uses: actions/setup-node@v3
         with:
           node-version: 16
       - run: npm install --legacy-peer-deps
+      - run: npm version patch -m ${{ steps.get_version.outputs.VERSION }}
 
   publish-npm:
     needs: build
