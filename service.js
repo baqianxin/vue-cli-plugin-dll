@@ -104,7 +104,7 @@ module.exports = (api, options) => {
                     VueLoaderPlugin,
                     DefinePlugin,
                     FriendlyErrorsWebpackPlugin,
-                    NamedChunksPlugin,
+                    // NamedChunksPlugin,
                     MiniCssExtreactPlugin,
                     webpack.DllPlugin,
                     FileNameCachePlugin,
